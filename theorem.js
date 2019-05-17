@@ -1,4 +1,4 @@
-const data = require('./output/Differentiations.json')
+const data = require('./output/Differentiations.json') // json file to be searched
 
 function getObject(theObject,query) {
 
@@ -16,7 +16,8 @@ function getObject(theObject,query) {
         for(var prop in theObject) {
             
             if(prop == "T") {
-                if(theObject[prop] == query && (theObject['TS'][2]==1 || theObject['TS'][3]==1)) {
+                if(theObject[prop] == query && (theObject['TS'][2]==1 || theObject['TS'][3]==1)) // result text must be bold or italic
+                {
                     return theObject;
                 }
             }
@@ -30,7 +31,7 @@ function getObject(theObject,query) {
     }
     return result;
 }
-var res = getObject(data,'definition');
+var res = getObject(data,'definition'); // text to be searched as the second argument
 
 if(res!=null){
     console.log(res);
