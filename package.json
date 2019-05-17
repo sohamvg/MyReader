@@ -1,0 +1,15 @@
+{
+  "name": "pdf-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pdftojson.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf2json": "^1.1.8",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
