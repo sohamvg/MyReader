@@ -1,37 +1,24 @@
-const data = require('./output/Differentiations.json') // json file to be searched
+// SEARCH IN PAGE
 
-function getObject(theObject,query) {
+const data = require('./output/abcd.json') // json file to be searched
 
-    var result = null;
-    if(theObject instanceof Array) {
-        for(var i = 0; i < theObject.length; i++) {
-            result = getObject(theObject[i],query);
-            if (result) {
-                break;
-            }   
-        }
-    }
-    else
-    {
-        for(var prop in theObject) {
-            
-            if(prop == "T") {
-                if(theObject[prop] == query && (theObject['TS'][2]==1 || theObject['TS'][3]==1)) // result text must be bold or italic
-                {
-                    return theObject;
-                }
+function search_theorem(data,search_item){
+    var page = data['formImage']['Pages'];
+
+    for(var pg_no in page){
+        
+        var text = page[pg_no]['Texts'];
+        for(var txt_no in text){
+            var R = text[txt_no]['R'][0];
+            if(R['T'] == search_item && (R['TS'][2]==1 || R['TS'][3]==1))   // result text must be bold or italic
+            {
+                return R;
             }
-            if(theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
-                result = getObject(theObject[prop],query);
-                if (result) {
-                    break;
-                }
-            } 
         }
     }
-    return result;
 }
-var res = getObject(data,'definition'); // text to be searched as the second argument
+
+var res = search_theorem(data,'abcd');  // parameter1 : data/json file ; parameter2 : text to be searched
 
 if(res!=null){
     console.log(res);
