@@ -1,6 +1,6 @@
 // SEARCH THEOREMS / DEFINITIONS / EXAMPLES IN PDF
 
-const data = require('./output/Theorem1.json') // json file to be searched
+const data = require('../output/Theorem1.json') // json file to be searched
 
 function search_theorem(data,search){
     var page = data['formImage']['Pages'];
